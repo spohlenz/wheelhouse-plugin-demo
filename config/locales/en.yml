@@ -1,0 +1,53 @@
+en:
+  resource:
+    # Model names
+    models:
+      plugin_demo/control: Controls Demo
+    
+    # Attribute names
+    attributes:
+      plugin_demo/control:
+        datetime: Date & Time
+        sidebar_datetime: Sidebar date & time
+        fixed_datetime: Fixed date & time
+        
+        fixed_1: "Fixed field #1"
+        fixed_2: "Fixed field #2"
+        fixed_3: "Fixed field #3"
+        
+        short_text_25: Short text (25%)
+        short_text_50: Short text (50%)
+        short_text_75: Short text (75%)
+    
+    # Validation messages
+    
+    
+  # Form labels and notes
+  helpers:
+    label:
+      control:
+        single_image: Single Image
+    
+    note:
+      control:
+        single_image: This is a custom note for this image field.
+      
+  
+  # Tabs
+  tabs:
+    plugin_demo/control:
+      dates_and_times: Dates & Times
+    
+  
+  # Sidebar sections
+  sidebar:
+    plugin_demo/control:
+      dates_and_times: Dates & Times
+      permalink: Permalink
+      option_fields: Option Fields
+  
+  
+  # Sections
+  sections:
+    controls: Controls Demo
+      

@@ -1,0 +1,141 @@
+- tab :text_fields do
+  = field :basic_text do
+    = form.text_field :basic_text
+  
+  = field :basic_text_2, :label => "Basic text with note" do
+    = form.text_field :basic_text_2
+    = note "This is a short note."
+  
+  = field :basic_text_3, :label => "Basic text with long note" do
+    = form.text_field :basic_text_3
+    = note "This is a longer note than the field above, so the note should appear below the text field.", :class => "long"
+  
+  = field :basic_text_4, :label => false do
+    = form.text_field :basic_text_4, :placeholder => "No field label (this is a placeholder)"
+  
+  = field :long_text_1, :label => "Short editor with simple editing controls" do
+    = form.editor :long_text_1, :rows => 5, :editor => :simple
+  
+  = field :long_text_2, :label => "Long editor with full editing controls" do
+    = form.editor :long_text_2, :rows => 30
+
+- tab :template_content do
+  %p.info Fields within this tab are dependant on the resource's current selected template.
+  
+  = content
+
+- tab :images do
+  = field :single_image do
+    = form.image :single_image
+    = note :single_image
+  
+  = field :image_collection do
+    = form.image_collection :image_collection
+
+- tab :dates_and_times do
+  %p.info Localized date and time support is coming soon.
+  
+  %fieldset
+    = field :date do
+      = form.date :date
+      = note "Date fields use a datepicker widget."
+  
+    = field :time do
+      = form.time :time
+      = note "Time fields are simple text-entry fields. Input may be 24-hour or am/pm."
+  
+    = field :datetime do
+      = form.datetime :datetime
+      = note "Date/time fields incorporate both date and time widgets."
+
+  %fieldset
+    = field :fixed_date, :class => "fixed" do
+      = form.date :fixed_date
+
+    = field :fixed_time, :class => "fixed" do
+      = form.time :fixed_time
+
+    = field :fixed_datetime, :class => "fixed" do
+      = form.datetime :fixed_datetime
+      = note "This is a note for a fixed date/time field."
+  
+- tab :option_fields do
+  = field :selection do
+    = form.select :selection, PluginDemo::Control.all_options, { :include_blank => "- Select -" }, :width => "60%"
+    
+  = field :tags do
+    = form.tags :tags, :placeholder => "Add a tag..."
+
+  = field :checkboxes do
+    = form.checkboxes :checkboxes, PluginDemo::Control.all_options, :editable => true, :placeholder => "Add a category..."
+  
+  = field :radio_buttons do
+    = form.radio_buttons :radio_buttons, PluginDemo::Control.priorities
+  
+  = field :single_checkbox do
+    = form.checkbox :single_checkbox, :label => "Check or uncheck me?"
+
+- tab :advanced do
+  %p.info This is the advanced tab, which is represented by the gear icon and appears as the right-most tab.
+  
+  %fieldset
+    = field :short_text_25 do
+      = form.text_field :short_text_25, :width => "25%"
+    
+    = field :short_text_50 do
+      = form.text_field :short_text_50, :width => "50%"
+    
+    = field :short_text_75 do
+      = form.text_field :short_text_75, :width => "75%"
+  
+  %fieldset
+    = field :fixed_1, :class => "fixed" do
+      = form.text_field :fixed_1
+      = note "Note for first fixed field"
+
+    = field :fixed_2, :class => "fixed" do
+      = form.text_field :fixed_2
+
+    = field :fixed_3, :class => "fixed" do
+      = form.text_field :fixed_3
+
+- sidebar(:options) do
+  = sidebar_expander :permalink do
+    = field :title do
+      = form.text_field :title, :title => true
+    
+    = field :permalink do
+      = form.permalink :permalink
+    
+  = sidebar_expander :dates_and_times do
+    = field :sidebar_date do
+      = form.date :sidebar_date
+    
+    = field :sidebar_time do
+      = form.time :sidebar_time
+
+    = field :sidebar_datetime do
+      = form.datetime :sidebar_datetime
+    
+  = sidebar_expander :option_fields do
+    = field :sidebar_selection do
+      = form.select :sidebar_selection, PluginDemo::Control.all_options, :include_blank => "- Select -"
+      
+    = field :sidebar_single_checkbox, :label => false do
+      = form.checkbox :sidebar_single_checkbox, :label => "Check or uncheck me?"
+  
+    = field :sidebar_tags do
+      = form.tags :sidebar_tags, :placeholder => "Add a tag..."
+    
+    = field :sidebar_checkboxes do
+      = form.checkboxes :sidebar_checkboxes, PluginDemo::Control.all_options, :editable => true, :placeholder => "Add a category..."
+
+    = field :sidebar_radio_buttons do
+      = form.radio_buttons :sidebar_radio_buttons, PluginDemo::Control.priorities
+
+- content_for(:head) do
+  = stylesheet_link_tag "plugin-demo/admin"
+  
+- content_for(:javascript) do
+  = javascript_include_tag "plugin-demo/admin"
+  

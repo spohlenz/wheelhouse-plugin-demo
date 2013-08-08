@@ -1,0 +1,20 @@
+- template.name = "Default Controls"
+- template.resource = PluginDemo::Control
+
+= @control.text "Single-line text", :placeholder => "Custom placeholder"
+
+= @control.text "Inline field", :style => :inline, :size => 15, :note => "Note for inline field."
+= @control.text "Another inline field", :style => :inline
+
+= @control.text "Fixed field", :style => :fixed
+= @control.text "Another fixed field", :style => :fixed
+
+= @control.content "Short content", :rows => 5
+
+= @control.image "Single image"
+
+- @control.loop "Looped content" do |item|
+  = item.image
+  = item.text
+  = item.content :rows => 5, :editor => :simple
+  
